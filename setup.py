@@ -23,16 +23,29 @@ else:
         "PyYAML"
     ]
 
+# Explicitly list package files
+package_files = [
+    "minimax_tts_openai/__main__.py",
+    "minimax_tts_openai/app.py",
+    "minimax_tts_openai/config.py",
+    "minimax_tts_openai/settings.yaml.example"
+]
+
 setup(
     name="minimax-tts-openai",
-    version="0.0.1",
+    version="0.0.3",
     author="Moha-Master",
     author_email="hongkongreporter@outlook.com",
     description="A proxy service converts Minimax TTS API to OpenAI-compatible format",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Moha-Master/MiniMax-TTS-OpenAI",
-    packages=find_packages(),
+    packages=["minimax_tts_openai"],
+    py_modules=[
+        "minimax_tts_openai.__main__",
+        "minimax_tts_openai.app",
+        "minimax_tts_openai.config"
+    ],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -57,4 +70,5 @@ setup(
     package_data={
         "minimax_tts_openai": ["settings.yaml.example"],
     },
+    data_files=[("", package_files)],
 )
