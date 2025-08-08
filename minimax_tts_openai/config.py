@@ -16,13 +16,13 @@ class Config:
     
     def _load_config(self):
         # 读取YAML配置文件（始终从当前工作目录读取）
-        config_path = "settings.yaml"
+        config_path = "config.yaml"
         
         logger.info(f"Loading configuration from {config_path}")
         
         if not os.path.exists(config_path):
-            # 如果没有settings.yaml文件，直接抛出异常
-            error_msg = f"Configuration file {config_path} not found. Please create it from settings.yaml.example"
+            # 如果没有config.yaml文件，直接抛出异常
+            error_msg = f"Configuration file {config_path} not found. Please create it from config.yaml.example"
             logger.error(error_msg)
             raise FileNotFoundError(error_msg)
         

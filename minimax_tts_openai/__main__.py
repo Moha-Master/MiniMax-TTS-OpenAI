@@ -8,7 +8,7 @@ def main():
     parser.add_argument(
         "--dir",
         default=os.path.expanduser("~/.config/minimax-tts-openai/"),
-        help="Working directory to read settings.yaml from (default: ~/.config/minimax-tts-openai/)"
+        help="Working directory to read config.yaml from (default: ~/.config/minimax-tts-openai/)"
     )
     parser.add_argument(
         "--host",
@@ -31,20 +31,20 @@ def main():
     # Change to the working directory
     os.chdir(work_dir)
     
-    # Check if settings.yaml exists
-    settings_file = work_dir / "settings.yaml"
-    if not settings_file.exists():
-        # Check if settings.yaml.example exists in the package
-        example_file = Path(__file__).parent / "settings.yaml.example"
+    # Check if config.yaml exists
+    config_file = work_dir / "config.yaml"
+    if not config_file.exists():
+        # Check if config.yaml.example exists in the package
+        example_file = Path(__file__).parent / "config.yaml.example"
         if example_file.exists():
-            print(f"Error: settings.yaml not found in {work_dir}")
-            print(f"Please copy {example_file} to {settings_file} and edit it with your Minimax API credentials.")
+            print(f"Error: config.yaml not found in {work_dir}")
+            print(f"Please copy {example_file} to {config_file} and edit it with your Minimax API credentials.")
             sys.exit(1)
         else:
-            print("Error: settings.yaml.example not found in the package")
+            print("Error: config.yaml.example not found in the package")
             sys.exit(1)
     
-    # Import app after changing directory and confirming settings file exists
+    # Import app after changing directory and confirming config file exists
     from minimax_tts_openai.app import app
     import uvicorn
     

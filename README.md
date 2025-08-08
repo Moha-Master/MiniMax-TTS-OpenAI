@@ -24,7 +24,7 @@
    pip install -r requirements.txt
    ```
 
-3. 通过复制 `settings.yaml.example` 到 `settings.yaml` 并使用您的 MiniMax API 凭据和其他设置进行编辑来配置服务。
+3. 通过复制 `config.yaml.example` 到 `config.yaml` 并使用您的 MiniMax API 凭据和其他设置进行编辑来配置服务。
 
 4. 运行服务：
    ```bash
@@ -46,15 +46,15 @@ minimax-tts-openai --dir /path/to/config --host 0.0.0.0 --port 8000
 ```
 
 参数说明：
-- `--dir`: 工作目录，从中读取 settings.yaml（默认：~/.config/minimax-tts-openai/）
+- `--dir`: 工作目录，从中读取 config.yaml（默认：~/.config/minimax-tts-openai/）
 - `--host`: 绑定的主机地址（默认：127.0.0.1）
 - `--port`: 绑定的端口（默认：8000）
 
 ## 配置
 
-在希望的工作目录中创建一个基于 `settings.yaml.example` 的 `settings.yaml` 文件，包含您的 MiniMax API 凭据和其他设置。服务会从 `~/.config/minimax-tts-openai/` 或设置的 `--dir` 中读取 `settings.yaml`。
+在希望的工作目录中创建一个基于 `config.yaml.example` 的 `config.yaml` 文件，包含您的 MiniMax API 凭据和其他设置。服务会从 `~/.config/minimax-tts-openai/` 或设置的 `--dir` 中读取 `config.yaml`。
 
-如果指定的目录中没有 `settings.yaml` 文件，程序会提示您需要从 `settings.yaml.example` 复制并编辑配置文件。
+如果指定的目录中没有 `config.yaml` 文件，程序会提示您需要从 `config.yaml.example` 复制并编辑配置文件。
 
 配置选项：
 - `minimax.group_id`: 您的 MiniMax 组 ID

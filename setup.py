@@ -9,6 +9,17 @@ if os.path.exists(readme_path):
 else:
     long_description = "A proxy service converts Minimax TTS API to OpenAI-compatible format"
 
+from setuptools import setup, find_packages
+import os
+
+# Read README.md for long description
+readme_path = os.path.join(os.path.dirname(__file__), "README.md")
+if os.path.exists(readme_path):
+    with open(readme_path, "r", encoding="utf-8") as fh:
+        long_description = fh.read()
+else:
+    long_description = "A proxy service converts Minimax TTS API to OpenAI-compatible format"
+
 # Read requirements.txt for install requirements
 requirements_path = os.path.join(os.path.dirname(__file__), "requirements.txt")
 if os.path.exists(requirements_path):
@@ -23,14 +34,6 @@ else:
         "PyYAML"
     ]
 
-# Explicitly list package files
-package_files = [
-    "minimax_tts_openai/__main__.py",
-    "minimax_tts_openai/app.py",
-    "minimax_tts_openai/config.py",
-    "minimax_tts_openai/settings.yaml.example"
-]
-
 setup(
     name="minimax-tts-openai",
     version="0.0.3",
@@ -40,7 +43,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Moha-Master/MiniMax-TTS-OpenAI",
-    packages=["minimax_tts_openai"],
+    packages=find_packages(),
     py_modules=[
         "minimax_tts_openai.__main__",
         "minimax_tts_openai.app",
@@ -68,7 +71,6 @@ setup(
     },
     include_package_data=True,
     package_data={
-        "minimax_tts_openai": ["settings.yaml.example"],
+        "minimax_tts_openai": ["config.yaml.example"],
     },
-    data_files=[("", package_files)],
 )
