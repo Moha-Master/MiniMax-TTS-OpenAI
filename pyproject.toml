@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minimax_tts_openai"
+version = "0.0.4"
+authors = [
+    {name = "Moha-Master", email = "hongkongreporter@outlook.com"},
+]
+description = "A proxy service converts Minimax TTS API to OpenAI-compatible format"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "requests",
+    "pydantic",
+    "PyYAML",
+]
+
+[project.urls]
+Homepage = "https://github.com/Moha-Master/MiniMax-TTS-OpenAI"
+Repository = "https://github.com/Moha-Master/MiniMax-TTS-OpenAI"
+Issues = "https://github.com/Moha-Master/MiniMax-TTS-OpenAI/issues"
+
+[project.scripts]
+minimax-tts-openai = "minimax_tts_openai.__main__:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["minimax_tts_openai*"]
+
+[tool.setuptools.package-data]
+minimax_tts_openai = ["config.yaml.example"]
